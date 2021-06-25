@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: #262626;
+}
+
+nav a {
+    text-decoration: none;
+    margin-left: 1rem;
+    color: #f4f4f4;
+    padding-bottom: 1rem;
+}
+
+nav a:hover{
+    border-bottom: 1px solid orange;
+}
+
+nav img {
+    height: 3rem;
+    padding: 0;
+    margin: 0;
+}
