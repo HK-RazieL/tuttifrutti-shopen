@@ -6,7 +6,7 @@ const fruitSchema = new mongoose.Schema({
     price: Number,
     unit: String,
     comments: String,
-    pres_or_abs_ent: Boolean
+    in_stock: Boolean
 });
 
 module.exports = mongoose.model("Fruit", fruitSchema);
