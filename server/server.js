@@ -1,10 +1,20 @@
 const express = require("express");
 const app = express();
-var router = require("./Router");
+const router = require("./Router");
+const session = require("express-session");
+const path = require("path");
 const port = 5000;
 
-app.use("/", router)
+app.use(session({secret: "Shh, its a secret!"}));
+app.use(express.urlencoded({ extended: true }));
+app.use("/", router);
+
+// to serve build
+// app.use(express.static(path.join(__dirname + "\\..\\client", 'build')));
+// app.get("/", (req, res) => {
+//     res.sendFile(path.join(__dirname + "\\..\\client\\public", "index.html"));
+// });
 
 app.listen(port, () => {
     return `Server running on port: ${port}`;
-})
+});

@@ -26,13 +26,38 @@ class ContentList extends Component {
                 unit: "FLURBOS",
                 in_stock: false
             },
+            {
+                fruit_name: "Cherry",
+                color: "Red",
+                price: 4000,
+                unit: "FLURBOS",
+                in_stock: true
+            },
+            {
+                fruit_name: "Peach",
+                color: "Yellow",
+                price: 4000,
+                unit: "FLURBOS",
+                in_stock: false
+            },
         ],
+    }
+
+    componentDidMount = () => {
+        fetch("/shopping-list")
+            .then((res) => {
+                console.log(res)
+                return res.json()
+            })
+            .then((json) => {
+                this.setState(json);
+            });
     }
     
     render() {
         return (
             <div className="contentList">
-                {this.state.items.map(item => <Item value={item} key={item.name}/>)}
+                {this.state.items.map(item => <Item value={item} key={item.fruit_name}/>)}
             </div>
         );
     }

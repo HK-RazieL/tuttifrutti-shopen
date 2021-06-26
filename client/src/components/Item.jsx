@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import "../static/item.css"
+import { addToCart } from "../redux/actions";
+import { connect } from "react-redux";
+import "../static/item.css";
 
 class Item extends Component {
     addToCart = () => {
-
+        this.props.dispatch(addToCart({type: "ADD_TO_CART", data: this.props.value}));
     }
 
     render() {
         return (
             <div className="item" onClick={this.addToCart} title="Click to add to cart!">
-                <span><img alt="img" src={`../static/${this.props.value.fruit_name}.png`}></img></span>
+                <span><img alt="img" src={`../static/${this.props.value.fruit_name.toLowerCase()}.png`}></img></span>
                 <span>Name: {this.props.value.fruit_name}</span>
                 <span>Color: {this.props.value.color}</span>
                 <span>Price: {this.props.value.price}</span>
@@ -20,4 +22,4 @@ class Item extends Component {
     }
 }
 
-export default Item;
+export default connect()(Item);
