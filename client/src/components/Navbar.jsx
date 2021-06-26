@@ -8,6 +8,7 @@ import Contact from "./Contact";
 import ShoppingList from "./ShoppingList";
 import SignUp from "./SignUp";
 import Login from "./Login";
+import { connect } from "react-redux";
 
 class Navbar extends Component {
     render() {
@@ -17,11 +18,11 @@ class Navbar extends Component {
                 <nav>
                     <img alt="logo" src={logo}></img>
                     <Link to="/">Shopping list</Link>
-                    <Link to="/cart">Cart</Link>
+                    <Link to="/cart">Cart ({this.props.cartItems.length ?? 0})</Link>
                     <Link to="/about">About</Link>
                     <Link to="/contact">Contact</Link>
-                    <Link to="/create-user">SignUp</Link>
-                    <Link to="/login-user">Login</Link>
+                    <Link to="/create-user">Sign Up</Link>
+                    <Link to="/login-user">Sign In</Link>
                 </nav>
                 <Switch>
                     <Route exact path="/" component={ShoppingList} />
@@ -38,4 +39,10 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+    return {
+        cartItems: state.cartItems
+    }
+}
+
+export default connect(mapStateToProps)(Navbar);

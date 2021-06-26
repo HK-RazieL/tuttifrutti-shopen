@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 
 class Cart extends Component {
     componentDidMount = () => {
-        console.log(this.props.cartData);
+        if (this.props.cartItems) {
+            console.log(this.props.cartItems)
+        }
     }
 
     buyFruit = () => {
@@ -22,7 +24,7 @@ class Cart extends Component {
 
 
 const mapStateToProps = (state) => ({
-    cartData: state.data,
+    cartItems: state.cartItems,
 })
 
 export default connect(mapStateToProps)(Cart);

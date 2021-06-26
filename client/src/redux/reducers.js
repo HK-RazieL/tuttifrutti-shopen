@@ -5,20 +5,16 @@ import {
 
 const initialState = {
     data: null,
+    cartItems: []
 }
 
 function Reducers(state = initialState, action) {
     switch (action.type) {
         case ADD_TO_CART:
-            console.log(action.data.data)
-            let cartData = [];
-            let data = action.data.data;
-            if (cartData.find(el => el.fruit_name === data.fruit_name)) {
-                console.log(cartData);
-            }
+            console.log(state)
             return {
                 ...state,
-                data: cartData
+                cartItems: [...state.cartItems, action.data.data]
             }
             case REMOVE_FROM_CART:
                 return {

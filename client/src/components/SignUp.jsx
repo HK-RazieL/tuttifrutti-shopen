@@ -21,11 +21,12 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div>
-                <form method="POST" onSubmit={this.createUser} >
-                    <input type="text" placeholder="user" name="user" onChange={this.handleChange} />
-                    <input type="text" placeholder="pass" name="pass" onChange={this.handleChange}/>
-                    <input type="submit" />
+            <div className="authForm">
+                <label>Sign Up</label>
+                <form method="POST" onSubmit={this.createUser}>
+                    <input type="text" placeholder="Username" name="user" onChange={this.handleChange} />
+                    <input type="text" placeholder="Password" name="pass" onChange={this.handleChange}/>
+                    <input type="submit" value="Sign Up" />
                 </form>
             </div>
         );

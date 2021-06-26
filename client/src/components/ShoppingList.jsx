@@ -46,7 +46,6 @@ class ContentList extends Component {
     componentDidMount = () => {
         fetch("/shopping-list")
             .then((res) => {
-                console.log(res)
                 return res.json()
             })
             .then((json) => {

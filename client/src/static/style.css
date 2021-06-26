@@ -1,7 +1,12 @@
+:root {
+    --bgr-color: rgb(200,200,200);
+}
+
 body {
-    background: rgb(200,200,200);
+    background: var(--bgr-color);
     margin: 0;
     padding: 0;
+
 }
 
 nav {
@@ -25,4 +30,43 @@ nav img {
     height: 5rem;
     padding: 0;
     margin: 0;
+}
+
+.authForm {
+    width: 200px;
+    border: 1px solid black;
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.authForm * {
+    margin: 0.5rem;
+}
+
+.authForm input[type=text] {
+    border: none;
+    border-bottom: 1px solid black;
+    background: var(--bgr-color);
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    outline: none;
+}
+
+.authForm input[type=text]:focus {
+    outline: none;
+}
+
+.authForm input[type=submit] {
+    border: none;
+    border-bottom: none;
+    border-radius: 5px;
+    width: 10rem;
+    height: 2rem;
+    background: lightgreen;
+    margin-left: 0;
+
 }
