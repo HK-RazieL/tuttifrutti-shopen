@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Item from "./Item";
-import "../static/contentList.css"
+import ShoppingListItem from "./ShoppingListItem";
 
 class ContentList extends Component {
     state = {
@@ -56,7 +55,7 @@ class ContentList extends Component {
     render() {
         return (
             <div className="contentList">
-                {this.state.items.map(item => <Item value={item} key={item.fruit_name}/>)}
+                {this.state.items.map(item => <ShoppingListItem value={item} key={item.fruit_name}/>)}
             </div>
         );
     }

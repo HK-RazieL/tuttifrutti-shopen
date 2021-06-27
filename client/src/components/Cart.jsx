@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import CartItem from "./CartItem";
 
 
 class Cart extends Component {
-    componentDidMount = () => {
-        if (this.props.cartItems) {
-            console.log(this.props.cartItems)
-        }
-    }
-
     buyFruit = () => {
         // todo if status = 403 redirect to login
     }
@@ -16,7 +11,13 @@ class Cart extends Component {
     render() {
         return (
             <div>
-                
+                {this.props.cartItems ?
+                    (<>
+                        <h2>Your shopping cart items:</h2>
+                        {this.props.cartItems.map(el => <CartItem value={el} key={Object.keys(el)[0]}/>)}
+                    </>)
+                    : <h2>Your shopping cart is empty</h2>
+                }
             </div>
         );
     }

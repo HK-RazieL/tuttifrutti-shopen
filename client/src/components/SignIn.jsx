@@ -20,7 +20,7 @@ class Login extends Component {
     }
     render() {
         return (
-            <div className="authForm">
+            <div className="auth-form">
                 <label>Sign In</label>
                 <form method="POST" onSubmit={this.loginUser}>
                     <input type="text" placeholder="Username" name="user" onChange={this.handleChange} />

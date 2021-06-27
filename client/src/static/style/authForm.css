@@ -1,0 +1,38 @@
+.auth-form {
+    width: 200px;
+    border: 1px solid black;
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card-color);
+}
+
+.auth-form * {
+    margin: 0.5rem;
+}
+
+.auth-form input[type=text] {
+    border: none;
+    border-bottom: 1px solid black;
+    background: var(--bgr-color);
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    outline: none;
+}
+
+.auth-form input[type=text]:focus {
+    outline: none;
+}
+
+.auth-form input[type=submit] {
+    border: none;
+    border-bottom: none;
+    border-radius: 5px;
+    width: 10rem;
+    height: 2rem;
+    background: lightgreen;
+    margin-left: 0;
+}

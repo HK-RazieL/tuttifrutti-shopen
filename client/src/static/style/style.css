@@ -1,0 +1,34 @@
+:root {
+    --bgr-color: rgb(200,200,200);
+    --card-color: rgb(220,220,220);
+}
+
+body {
+    background: var(--bgr-color);
+    margin: 0;
+    padding: 0;
+
+}
+
+nav {
+    background: #262626;
+}
+
+nav a {
+    line-height: 5rem;
+    vertical-align: top;
+    display:inline-block;
+    text-decoration: none;
+    margin-left: 1rem;
+    color: #f4f4f4;
+}
+
+nav a:hover {
+    border-bottom: 1px solid orange;
+}
+
+nav img {
+    height: 5rem;
+    padding: 0;
+    margin: 0;
+}

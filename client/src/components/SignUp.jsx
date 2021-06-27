@@ -21,7 +21,7 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div className="authForm">
+            <div className="auth-form">
                 <label>Sign Up</label>
                 <form method="POST" onSubmit={this.createUser}>
                     <input type="text" placeholder="Username" name="user" onChange={this.handleChange} />

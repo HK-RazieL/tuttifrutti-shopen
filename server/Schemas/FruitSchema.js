@@ -5,7 +5,6 @@ const fruitSchema = new mongoose.Schema({
     color: String,
     price: Number,
     unit: String,
-    comments: String,
     in_stock: Boolean,
 });
 

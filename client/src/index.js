@@ -4,7 +4,11 @@ import Navbar from './components/Navbar';
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import Reducers from "./redux/reducers";
-import './static/style.css';
+import './static/style/style.css';
+import "./static/style/items.css";
+import "./static/style/contentList.css";
+import "./static/style/authForm.css";
+
 
 const store = createStore(Reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 

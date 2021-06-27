@@ -1,0 +1,24 @@
+.shopping-list-item {
+    background: white;
+    padding: 10px;
+}
+
+.shopping-list-item * {
+    display: grid;
+    text-align: center;
+}
+
+.shopping-list-item:hover {
+    cursor: pointer;
+    opacity: 75%;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+    border: 1px solid black;
+    background: white;
+    margin: 1rem;
+    padding: 2rem;
+    width: 60%;
+}

@@ -40,7 +40,7 @@ router.post("/buy-fruit", (req, res) => {
 router.post("/login-user", (req, res) => {
     User.findOne({username: req.body.username}, (err, result) => {
         if (err) console.error(err);
-
+        
         if (hash(req.body.password) === result.password) {
             req.session.authenticated = true;
             res.status(200);
@@ -55,7 +55,6 @@ router.post("/shopping-list", (req, res) => {
 });
 
 router.post("/create-user", (req, res) => {
-    console.log(req.body)
     const user = new User(req.body);
     user.password = hash(user.password);
     
