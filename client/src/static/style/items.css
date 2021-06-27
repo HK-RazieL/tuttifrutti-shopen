@@ -15,10 +15,10 @@
 
 .cart-item {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+    grid-template-columns: repeat(auto-fill, minmax(10%, 15%));
     border: 1px solid black;
     background: white;
-    margin: 1rem;
+    margin: 0.5rem 10%;
     padding: 2rem;
-    width: 60%;
+    justify-content: center;
 }

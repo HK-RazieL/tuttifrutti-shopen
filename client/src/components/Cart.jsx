@@ -14,10 +14,18 @@ class Cart extends Component {
                 {this.props.cartItems ?
                     (<>
                         <h2>Your shopping cart items:</h2>
-                        {this.props.cartItems.map(el => <CartItem value={el} key={Object.keys(el)[0]}/>)}
+                        <div className="cart">
+                            {this.props.cartItems.map(el => <CartItem value={el} key={Object.keys(el)[0]}/>)}
+                        </div>
                     </>)
                     : <h2>Your shopping cart is empty</h2>
                 }
+                <h2 className="card">Total: {
+                    this.props.cartItems.reduce((total, el) => {
+                        return total + (el[Object.keys(el)[0]].quantity * el[Object.keys(el)[0]].fruit.price)
+                    }, 0)
+                }
+                </h2>
             </div>
         );
     }
@@ -25,7 +33,7 @@ class Cart extends Component {
 
 
 const mapStateToProps = (state) => ({
-    cartItems: state.cartItems,
+    cartItems: state.cartItems
 })
 
 export default connect(mapStateToProps)(Cart);

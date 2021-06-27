@@ -13,10 +13,11 @@
     margin: 0.5rem;
 }
 
-.auth-form input[type=text] {
+.auth-form input[type=text],
+.auth-form input[type=password] {
     border: none;
     border-bottom: 1px solid black;
-    background: var(--bgr-color);
+    background: var(--card-color);
     padding: 0;
     margin-left: 0;
     margin-right: 0;

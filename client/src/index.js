@@ -8,6 +8,7 @@ import './static/style/style.css';
 import "./static/style/items.css";
 import "./static/style/contentList.css";
 import "./static/style/authForm.css";
+import "./static/style/cart.css";
 
 
 const store = createStore(Reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

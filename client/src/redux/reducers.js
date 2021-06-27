@@ -1,7 +1,8 @@
 import {
     ADD_TO_CART,
     REMOVE_FROM_CART,
-    DECREMENT
+    DECREMENT,
+    LOGGED_IN
 } from "./actions"
 
 const initialState = {
@@ -60,6 +61,11 @@ function Reducers(state = initialState, action) {
                     ...state,
                     cartItems: items
                 }
+            }
+        case LOGGED_IN:
+            return {
+                ...state,
+                isLoggedIn: action.data.data
             }
         default:
             return state

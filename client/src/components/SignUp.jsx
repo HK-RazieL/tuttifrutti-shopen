@@ -7,7 +7,10 @@ class SignUp extends Component {
 
         fetch("/create-user", {
             method: "POST",
-            body: this.state
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
         });
     }
 
@@ -23,9 +26,9 @@ class SignUp extends Component {
         return (
             <div className="auth-form">
                 <label>Sign Up</label>
-                <form method="POST" onSubmit={this.createUser}>
-                    <input type="text" placeholder="Username" name="user" onChange={this.handleChange} />
-                    <input type="text" placeholder="Password" name="pass" onChange={this.handleChange}/>
+                <form method="POST" onSubmit={this.createUser} autoComplete="off">
+                    <input type="text" placeholder="Username" name="username" onChange={this.handleChange} />
+                    <input type="password" placeholder="Password" name="password" onChange={this.handleChange}/>
                     <input type="submit" value="Sign Up" />
                 </form>
             </div>

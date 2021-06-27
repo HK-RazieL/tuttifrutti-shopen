@@ -39,15 +39,18 @@ router.post("/buy-fruit", (req, res) => {
 
 router.post("/login-user", (req, res) => {
     User.findOne({username: req.body.username}, (err, result) => {
-        if (err) console.error(err);
-        
+        if (err) return console.error(err);
+        if (!result) {
+            res.status(404).send("No user found");
+            return console.error("No user found");
+        }
+
         if (hash(req.body.password) === result.password) {
             req.session.authenticated = true;
-            res.status(200);
-            res.send("Success!");
+            console.log(`-----\nUser "${req.body.username}" successfully logged in!\n-----`);
+            res.send(JSON.stringify("Success!"));
         }
     });
-    res.send("No user found")
 });
 
 router.post("/shopping-list", (req, res) => {
@@ -60,8 +63,8 @@ router.post("/create-user", (req, res) => {
     
     user.save((err, user) => {
         if (err) return console.error(err);
-        console.log(`-----\nA new user was created in the DB!\n${user}\n-----`);
-        res.send(req.status);
+        console.log(`-----\nA new user was created in the DB!\n${user}!\n-----`);
+        res.send(JSON.stringify("New user created"));
     });
 });
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { loggedIn } from "../redux/actions";
 import { connect } from "react-redux";
 import logo from "../static/logo.png"
 import Cart from "./Cart";
@@ -11,6 +12,10 @@ import SignUp from "./SignUp";
 import Login from "./SignIn";
 
 class Navbar extends Component {
+    logOut = () => {
+        this.props.dispatch(loggedIn({ type: "LOGGED_IN", data: false }))
+    }
+
     render() {
         return (
             <>
@@ -18,18 +23,23 @@ class Navbar extends Component {
                 <nav>
                     <img alt="logo" src={logo}></img>
                     <Link to="/">Shopping list</Link>
-                    <Link to="/cart">Cart ({this.props.cartItems.reduce((total, el) => {
+                    <Link to={this.props.isLoggedIn ? "/cart" : "/login-user"}>Cart ({this.props.cartItems.reduce((total, el) => {
                         return total + el[Object.keys(el)[0]].quantity;
                     }, 0)
                     })</Link>
                     <Link to="/about">About</Link>
                     <Link to="/contact">Contact</Link>
-                    <Link to="/create-user">Sign Up</Link>
-                    <Link to="/login-user">Sign In</Link>
+                    {!this.props.isLoggedIn ?
+                        <>
+                            <Link to="/create-user">Sign Up</Link>
+                            <Link to="/login-user">Sign In</Link>
+                        </>
+                    : <Link to="/login-user" onClick={this.logOut}>Log Out</Link>
+                    }
                 </nav>
                 <Switch>
-                    <Route exact path="/" component={ShoppingList} />
-                    <Route exact path="/cart" component={Cart} />
+                    <Route exact path="/" component={ShoppingList} onEnter={this.isAuth} />
+                    <Route exact path="/cart" component={Cart}  onEnter={this.isAuth} />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/contact" component={Contact} />
                     <Route exact path="/create-user" component={SignUp} />
@@ -44,7 +54,8 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        cartItems: state.cartItems
+        cartItems: state.cartItems,
+        isLoggedIn: state.isLoggedIn
     }
 }
 
