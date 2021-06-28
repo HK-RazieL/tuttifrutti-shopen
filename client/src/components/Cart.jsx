@@ -4,9 +4,6 @@ import CartItem from "./CartItem";
 
 
 class Cart extends Component {
-    state = {
-        status: ""
-    }
     makeOrder = () => {
         fetch("/make-order", {
             method: "POST",
@@ -21,9 +18,7 @@ class Cart extends Component {
             })
         }).then((res) => {
             if (res.status === 200) {
-                this.setState({
-                    status: 200
-                });
+                alert("Successful order!");
             }
         });
     }
@@ -49,7 +44,6 @@ class Cart extends Component {
                     </>
                     : <h2>Your shopping cart is empty</h2>
                 }
-                {this.state.status === 200 ? <p>Success!</p> : null}
             </div>
         );
     }
