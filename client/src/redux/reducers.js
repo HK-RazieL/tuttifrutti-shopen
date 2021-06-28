@@ -16,22 +16,20 @@ function Reducers(state = initialState, action) {
             {
                 let items = state.cartItems.slice();
                 let index = items.findIndex(el => {
-                    return Object.keys(el)[0] === action.data.data.fruit_name
+                    return el.fruit.fruit_name === action.data.data.fruit_name
                 });
                 let temp;
                 if (index < 0) {
                     temp = {
-                        [action.data.data.fruit_name]: {
-                            quantity: 0,
-                            fruit: action.data.data
-                        }
+                        quantity: 0,
+                        fruit: action.data.data
                     };
                     items.push(temp);
                     index = items.length - 1;
                 } else {
                     temp = items[index];
                 }
-                temp[action.data.data.fruit_name].quantity++;
+                temp.quantity++;
                 items[index] = temp;
                 return {
                     ...state,
@@ -42,7 +40,7 @@ function Reducers(state = initialState, action) {
             {
                 let items = state.cartItems.slice();
                 let index = items.findIndex(el => {
-                    return Object.keys(el)[0] === action.data.data.fruit_name
+                    return el.fruit.fruit_name === action.data.data.fruit_name
                 });
                 items.splice(index, 1);
                 return {
@@ -54,9 +52,9 @@ function Reducers(state = initialState, action) {
             {
                 let items = state.cartItems.slice();
                 let index = items.findIndex(el => {
-                    return Object.keys(el)[0] === action.data.data.fruit_name
+                    return el.fruit.fruit_name === action.data.data.fruit_name
                 });                
-                items[index][action.data.data.fruit_name].quantity--;
+                items[index].quantity--;
                 return {
                     ...state,
                     cartItems: items

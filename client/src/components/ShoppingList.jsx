@@ -43,13 +43,13 @@ class ContentList extends Component {
     }
 
     componentDidMount = () => {
-        fetch("/shopping-list")
-            .then((res) => {
-                return res.json()
-            })
-            .then((json) => {
-                this.setState(json);
-            });
+        // fetch("/shopping-list")
+        //     .then((res) => {
+        //         return res.json()
+        //     })
+        //     .then((json) => {
+        //         this.setState(json);
+        //     });
     }
     
     render() {

@@ -23,13 +23,13 @@ class Navbar extends Component {
                 <nav>
                     <img alt="logo" src={logo}></img>
                     <Link to="/">Shopping list</Link>
-                    <Link to={this.props.isLoggedIn ? "/cart" : "/login-user"}>Cart ({this.props.cartItems.reduce((total, el) => {
-                        return total + el[Object.keys(el)[0]].quantity;
+                    <Link to={this.props.isLoggedIn?.status ? "/cart" : "/login-user"}>Cart ({this.props.cartItems.reduce((total, el) => {
+                        return total + el.quantity;
                     }, 0)
                     })</Link>
                     <Link to="/about">About</Link>
                     <Link to="/contact">Contact</Link>
-                    {!this.props.isLoggedIn ?
+                    {!this.props.isLoggedIn?.status ?
                         <>
                             <Link to="/create-user">Sign Up</Link>
                             <Link to="/login-user">Sign In</Link>

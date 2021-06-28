@@ -34,8 +34,8 @@ nav img {
 }
 
 .card {
-    width: 200px;
+    width: 30%;
     border: 1px solid black;
-    padding: 2rem;
+    padding: 0.1rem;
     background: var(--card-color);
 }

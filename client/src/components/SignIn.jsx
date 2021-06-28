@@ -16,7 +16,13 @@ class Login extends Component {
         }).then((res) => {
             return res.json()
         }).then((json) => {
-            this.props.dispatch(loggedIn({ type: "LOGGED_IN", data: true}));
+            this.props.dispatch(loggedIn({ 
+                type: "LOGGED_IN", 
+                data: {
+                    username: this.state.username, 
+                    status: true
+                }
+            }));
         });
     }
 
@@ -27,15 +33,26 @@ class Login extends Component {
             [target.name]: target.value
         });
     }
+
     render() {
         return (
             <>
                 {!this.props.isLoggedIn ? 
                     <div className="auth-form">
                         <label>Sign In</label>
-                        <form method="POST" onSubmit={this.loginUser} autoComplete="off">
-                            <input type="text" placeholder="Username" name="username" onChange={this.handleChange} />
-                            <input type="password" placeholder="Password" name="password" onChange={this.handleChange}/>
+                        <form method="POST" onSubmit={this.loginUser}>
+                            <input type="text" 
+                                placeholder="Username" 
+                                name="username" 
+                                onChange={this.handleChange} 
+                                autoComplete="off" 
+                                required />
+                            <input type="password" 
+                                placeholder="Password" 
+                                name="password" 
+                                onChange={this.handleChange} 
+                                autoComplete="off" 
+                                required />
                             <input type="submit" value="Sign In" />
                         </form>
                     </div>
