@@ -21,8 +21,8 @@ const Order = require("./Schemas/orderSchema");
 var router = express.Router();
 
 router.post("/add-new-fruit", (req, res) => {
+    console.log(req.body)
     const fruit = new Fruit(req.body);
-
     fruit.save((err, fruit) => {
         if (err) return console.error(err);
         console.log(`-----\nA new FRUIT was added to the DB!\n${fruit}\n-----`);
@@ -32,7 +32,7 @@ router.post("/add-new-fruit", (req, res) => {
 
 router.post("/make-order", (req, res) => {
     const order = new Order(req.body);
-    console.log(req.body)
+    
     order.save((err, order) => {
         if (err) return console.error(err);
         console.log(`-----\nA new order has been made!\n${order}\n-----`);
@@ -57,8 +57,17 @@ router.post("/login-user", (req, res) => {
     });
 });
 
-router.post("/shopping-list", (req, res) => {
-    res.send(req);
+router.get("/shopping-list", (req, res) => {
+    Fruit.find({}, (err, result) => {
+        if (err) return console.error(err);
+
+        if (!result) {
+            res.status(404).send("No stock found");
+            return console.error("No stock found");
+        }
+
+        res.send(result);
+    });
 });
 
 router.post("/create-user", (req, res) => {

@@ -3,53 +3,17 @@ import ShoppingListItem from "./ShoppingListItem";
 
 class ContentList extends Component {
     state = {
-        items: [
-            {
-                fruit_name: "Apple",
-                color: "Red",
-                price: 2.50,
-                unit: "BG_LEV",
-                in_stock: true
-            },
-            {
-                fruit_name: "Orange",
-                color: "Orange",
-                price: 1.80,
-                unit: "BG_LEV",
-                in_stock: true
-            }, 
-            {
-                fruit_name: "Plumbus",
-                color: "Pink",
-                price: 4000,
-                unit: "FLURBOS",
-                in_stock: false
-            },
-            {
-                fruit_name: "Cherry",
-                color: "Red",
-                price: 4000,
-                unit: "FLURBOS",
-                in_stock: true
-            },
-            {
-                fruit_name: "Peach",
-                color: "Yellow",
-                price: 4000,
-                unit: "FLURBOS",
-                in_stock: false
-            },
-        ],
+        items: []
     }
 
     componentDidMount = () => {
-        // fetch("/shopping-list")
-        //     .then((res) => {
-        //         return res.json()
-        //     })
-        //     .then((json) => {
-        //         this.setState(json);
-        //     });
+        fetch("/shopping-list")
+            .then((res) => {
+                return res.json()
+            })
+            .then((json) => {
+                this.setState({items:json});
+            });
     }
     
     render() {

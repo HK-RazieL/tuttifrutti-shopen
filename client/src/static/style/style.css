@@ -39,3 +39,7 @@ nav img {
     padding: 0.1rem;
     background: var(--card-color);
 }
+
+h2 {
+    margin-left: 10%;
+}
