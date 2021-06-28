@@ -1,6 +1,6 @@
 :root {
-    --bgr-color: rgb(200,200,200);
-    --card-color: rgb(220,220,220);
+    --bgr-color: rgb(200, 200, 200);
+    --card-color: rgb(220, 220, 220);
 }
 
 body {
@@ -17,14 +17,29 @@ nav {
 nav a {
     line-height: 5rem;
     vertical-align: top;
-    display:inline-block;
+    display: inline-block;
     text-decoration: none;
     margin-left: 1rem;
     color: #f4f4f4;
+    position: relative;
 }
 
-nav a:hover {
-    border-bottom: 1px solid orange;
+nav a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: orange;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+nav a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 nav img {
@@ -40,6 +55,19 @@ nav img {
     background: var(--card-color);
 }
 
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
 h2 {
     margin-left: 10%;
+}
+
+.about {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    text-align: center;
 }

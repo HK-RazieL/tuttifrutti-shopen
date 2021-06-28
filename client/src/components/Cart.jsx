@@ -36,7 +36,7 @@ class Cart extends Component {
                         <div className="cart">
                             {this.props.cartItems.map(el => <CartItem value={el} key={el.fruit.fruit_name}/>)}
                         </div>
-                        <div className="card">
+                        <div className="buy card">
                             <h2>Total: {
                                 this.props.cartItems.reduce((total, el) => {
                                     return total + (el.quantity * el.fruit.price)

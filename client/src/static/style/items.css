@@ -10,7 +10,8 @@
 
 .shopping-list-item:hover {
     cursor: pointer;
-    opacity: 75%;
+    transform: scale(1.1);
+    transition: transform 300ms ease;
 }
 
 .cart-item {

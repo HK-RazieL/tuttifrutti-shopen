@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { addToCart } from "../redux/actions";
 import { connect } from "react-redux";
+// import "../static";
 
 class ShoppingListItem extends Component {
     addToCart = () => {
@@ -10,7 +11,7 @@ class ShoppingListItem extends Component {
     render() {
         return (
             <div className="shopping-list-item" onClick={this.addToCart} title="Click to add to cart!">
-                <span><img alt="img" ></img></span>
+                <span><img alt="img" src={`./${this.props.value.fruit_name}.png`} ></img></span>
                 <span>Name: {this.props.value.fruit_name}</span>
                 <span>Color: {this.props.value.color}</span>
                 <span>Price: {this.props.value.price}</span>

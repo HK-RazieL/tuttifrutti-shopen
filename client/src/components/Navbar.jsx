@@ -23,10 +23,12 @@ class Navbar extends Component {
                 <nav>
                     <img alt="logo" src={logo}></img>
                     <Link to="/">Shopping list</Link>
-                    <Link to={this.props.isLoggedIn?.status ? "/cart" : "/login-user"}>Cart ({this.props.cartItems.reduce((total, el) => {
-                        return total + el.quantity;
-                    }, 0)
-                    })</Link>
+                    <Link to={this.props.isLoggedIn?.status ? "/cart" : "/login-user"}
+                        className="hover-underline-animation">
+                            Cart ({this.props.cartItems.reduce((total, el) => {
+                                return total + el.quantity;
+                            }, 0)})
+                    </Link>
                     <Link to="/about">About</Link>
                     <Link to="/contact">Contact</Link>
                     {!this.props.isLoggedIn?.status ?

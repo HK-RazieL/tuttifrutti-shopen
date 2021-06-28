@@ -36,10 +36,10 @@ class Login extends Component {
 
     render() {
         return (
-            <>
+            <div className="login-screen">
                 {!this.props.isLoggedIn ? 
                     <div className="auth-form">
-                        <label>Sign In</label>
+                        <h1>Sign In</h1>
                         <form method="POST" onSubmit={this.loginUser}>
                             <input type="text" 
                                 placeholder="Username" 
@@ -56,8 +56,12 @@ class Login extends Component {
                             <input type="submit" value="Sign In" />
                         </form>
                     </div>
-                : <div>You have successfully logged in!</div>}
-            </>
+                : <div className="card">
+                    <h1>You have successfully logged in!</h1>
+                    <h3>Welcome to our store!</h3>
+                  </div>
+                }
+            </div>
         );
     }
 }

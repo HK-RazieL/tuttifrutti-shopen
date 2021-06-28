@@ -18,3 +18,36 @@
     border: 1px solid transparent;
     cursor: initial;
 }
+
+.card input[type=button] {
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.buy.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 10%;
+    min-width: 300px;
+}
+
+.buy.card h2{
+    margin: 10%;
+    padding: 0;
+}
+
+.buy.card input[type=button] {
+    margin: 10%;
+    font-size: 1.2em;
+    border: none;
+    border-bottom: none;
+    border-radius: 5px;
+    width: 10rem;
+    height: 2rem;
+    background: lightgreen;
+    transition: 500ms;
+}
+
+.buy.card input[type=button]:hover {
+    background: rgb(92, 105, 92);
+}

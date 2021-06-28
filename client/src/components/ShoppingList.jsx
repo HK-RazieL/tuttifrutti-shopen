@@ -19,7 +19,7 @@ class ContentList extends Component {
     render() {
         return (
             <div className="contentList">
-                {this.state.items.map(item => <ShoppingListItem value={item} key={item.fruit_name}/>)}
+                {this.state.items.map(item => <ShoppingListItem value={item} key={item.fruit_name} className="zoom" />)}
             </div>
         );
     }

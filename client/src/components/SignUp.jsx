@@ -39,7 +39,7 @@ class SignUp extends Component {
     render() {
         return (
             <div className="auth-form">
-                <label>Sign Up</label>
+                <h1>Sign Up</h1>
                 <form method="POST" onSubmit={this.createUser}>
                     <input type="text" 
                         placeholder="Username" 
