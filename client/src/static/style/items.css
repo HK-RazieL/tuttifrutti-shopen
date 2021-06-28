@@ -3,23 +3,21 @@
     padding: 10px;
 }
 
+.shopping-list img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 20px;
+}
+
 .shopping-list-item * {
+    max-width: 280px;
+    max-height: 300px;
     display: grid;
-    text-align: center;
+    justify-content: center;
 }
 
 .shopping-list-item:hover {
     cursor: pointer;
     transform: scale(1.1);
     transition: transform 300ms ease;
-}
-
-.cart-item {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10%, 15%));
-    border: 1px solid black;
-    background: white;
-    margin: 0.5rem 10%;
-    padding: 2rem;
-    justify-content: center;
 }

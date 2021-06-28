@@ -4,14 +4,9 @@ import CartItem from "./CartItem";
 
 
 class Cart extends Component {
-    buyFruit = () => {
-        // todo if status = 403 redirect to login
+    state = {
+        status: ""
     }
-
-    componentDidMount = () => {
-        console.log(this.props)
-    }
-
     makeOrder = () => {
         fetch("/make-order", {
             method: "POST",
@@ -24,6 +19,12 @@ class Cart extends Component {
                 status: "pending",
                 date: new Date()
             })
+        }).then((res) => {
+            if (res.status === 200) {
+                this.setState({
+                    status: 200
+                });
+            }
         });
     }
 
@@ -48,6 +49,7 @@ class Cart extends Component {
                     </>
                     : <h2>Your shopping cart is empty</h2>
                 }
+                {this.state.status === 200 ? <p>Success!</p> : null}
             </div>
         );
     }

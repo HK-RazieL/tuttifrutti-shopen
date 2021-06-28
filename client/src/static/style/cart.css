@@ -6,7 +6,7 @@
     background: transparent;
     border: 1px solid transparent;
     cursor: pointer;
-    margin: 0 1em;
+    margin: 0 5px;
 }
 
 .cart input[type=button]:hover {
@@ -17,6 +17,23 @@
 .cart input[type=button]:hover:disabled {
     border: 1px solid transparent;
     cursor: initial;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 12%);
+    border: 1px solid black;
+    background: white;
+    margin: 0.3rem 10%;
+    padding: 1rem;
+    justify-content: center;
+    vertical-align: middle;
+    max-height: 100px;
+}
+
+.cart-item img {
+    max-width: 50%;
+    max-height: 50%;
 }
 
 .card input[type=button] {

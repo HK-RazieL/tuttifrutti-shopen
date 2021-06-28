@@ -27,6 +27,7 @@ class CartItem extends Component {
     render() {
         return (
             <div className="cart-item">
+                <div><img alt="img" src={window.location.origin + `/${this.props.value.fruit.fruit_name.replace(/\s+/gui, "_")}.png`} ></img></div>
                 <div>{this.props.value.fruit.fruit_name}</div>
                 <div>
                     <input name={this.props.value.fruit.fruit_name} 
